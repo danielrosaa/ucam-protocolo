@@ -1,17 +1,17 @@
-@import '~assets/styles/variables';
+@import './../assets/styles/variables';
 .screen {
     width: 100%;
     height: 100vh;
-    background-color: $background;
+    background-color: #fff;
     display: flex;
     .sidebar {
         flex: 1;
-        max-width: 80px;
+        max-width: 90px;
     }
     .header {
         flex: 18;
     }
     .content {
-        
+        height: 100px;
     }
 }
