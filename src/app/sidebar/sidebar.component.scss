@@ -1,0 +1,5 @@
+@import '~assets/styles/variables';
+.sidebar {
+    background-color: $sidebar;
+    height: 100%; // 100% of app.content, which is 100vh
+}
