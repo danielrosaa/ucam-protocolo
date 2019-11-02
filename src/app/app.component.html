@@ -3,6 +3,7 @@
   <div class="container">
     <app-header class='header'></app-header>
     <div class="content">
+
       <div class="title">
         <div class="left">
           <img src="./../assets/images/marca-aplicacao.svg" alt="Marca Protocolo">
@@ -23,21 +24,76 @@
           <div>Natureza do requerimento</div>
           <div>Tela de cadastro</div>
         </div>
-        <div class="form">
+        <form class="form">
           <div class="descricao">
-            <label for="desc">Descrição</label>
-            <input type="text" name="desc" id="desc" placeholder="Preencha aqui">
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" placeholder="Preencha aqui" ngModel name="descricao" #descricao="ngModel"
+              (change)='log(descricao)'>
           </div>
           <div class="input">
             <label for="input">Input 2</label>
-            <input type="text" name="input" id="input" placeholder="Preencha aqui">
+            <input type="text" id="input" placeholder="Preencha aqui" ngModel name="input" #input="ngModel"
+              (change)='log(input)'>
           </div>
           <div class="submit">
             <button>Nova Natureza</button>
             <button>Limpar</button>
           </div>
-        </div>
+        </form>
       </div>
+
+      <div class="table">
+        <table>
+          <thead>
+            <th>Nomes</th>
+            <th>Unidades Envolvidas</th>
+            <th>Tipos de Natureza</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of protocolo">
+              <td>
+                  <div class="nome">{{ item.name }}</div>
+                  <div class="subtitulo">{{ item.subtitulo }}</div>
+              </td>
+              <td>{{ item.unidade }}</td>
+              <td>{{ item.tipos_natureza}}</td>
+              <td>
+                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
+                <button class="actions"><i class="material-icons">edit</i> Editar</button>
+                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
+              </td>
+            </tr>
+            <!-- <tr class="active">
+              <td>
+                <div>Nome do bagulho</div>
+              </td>
+              <td>43</td>
+              <td>234</td>
+              <td>
+                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
+                <button class="actions"><i class="material-icons">edit</i> Editar</button>
+                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <div>Nome do bagulho</div>
+              </td>
+              <td>43</td>
+              <td>234</td>
+              <td>
+                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
+                <button class="actions"><i class="material-icons">edit</i> Editar</button>
+                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
+              </td>
+            </tr> -->
+
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>
