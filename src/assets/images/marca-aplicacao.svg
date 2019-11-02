@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="233" height="87" viewBox="0 0 233 87">
+  <defs>
+    <clipPath id="clip-Marca_Aplicação">
+      <rect width="233" height="87"/>
+    </clipPath>
+  </defs>
+  <g id="Marca_Aplicação" data-name="Marca Aplicação" clip-path="url(#clip-Marca_Aplicação)">
+    <g id="Grupo_2643" data-name="Grupo 2643" transform="translate(14851 8556)">
+      <text id="Marie_Winter" data-name="Marie Winter" transform="translate(-14769.992 -8504.814)" fill="#3b393e" font-size="24" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">Protocolo</tspan></text>
+      <path id="Caminho_3529" data-name="Caminho 3529" d="M0,0H35.455L27.961,14.35H8.654Z" transform="translate(-14782.195 -8530.141) rotate(90)" fill="#0048b9" opacity="0.22"/>
+      <path id="Caminho_3530" data-name="Caminho 3530" d="M0,0H40.262l-8.51,16.3H9.827Z" transform="translate(-14789.631 -8532.545) rotate(90)" fill="#0048b9" opacity="0.506"/>
+      <path id="Caminho_3528" data-name="Caminho 3528" d="M0,0H46.538L36.7,18.836H11.359Z" transform="translate(-14796.77 -8535.684) rotate(90)" fill="#0048b9"/>
+    </g>
+  </g>
+</svg>
