@@ -11,11 +11,12 @@
     max-width: 90px;
   }
 
-  .content {
+  .container {
     flex: 18;
     background-color: $background;
 
     .header {
+      background-color: #FFF;
       display: flex;
       align-items: center;
       flex: 18;
@@ -23,10 +24,156 @@
       max-height: 100px;
       min-height: 80px;
     }
-    .outra-coisa {
-        padding: 50px 30px;
-        background-color: antiquewhite;
-        height: auto;
+
+    @media screen and (max-width: 1281px) {
+        .content {
+            padding: 1em 3em !important;
+        }
+    }
+    @media screen and (max-width: 1441px) {
+        .content {
+            padding: 2em 4em !important;
+        }
+    }
+
+    .content {
+      padding: 2em 10em 2em 7em;
+      height: auto;
+
+      .title {
+        display: flex;
+        height: 5em;
+        margin-bottom: 3em;
+
+        .left {
+          display: flex;
+          align-items: center;
+          flex: 2;
+
+          img {
+            // flex: 1;
+            width: 200px;
+            height: auto;
+          }
+
+          span {
+            color: $text;
+            margin-left: 15px;
+            // flex: 10;
+          }
+        }
+
+        .right {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          background-color: #FFF;
+          border-radius: 5px;
+          padding-right: 10px;
+
+          .left {
+            justify-content: center;
+            margin-right: 5px;
+            flex: 2;
+            color: $textTitle;
+            font-weight: bold;
+            font-size: 1.1rem;
+
+            i {
+              color: $iconDisabled;
+              margin-right: 10px;
+            }
+          }
+
+          .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 5px;
+            font-size: 0.9rem;
+            flex: 1;
+
+            div {
+              &:first-child {
+                color: $textTitle;
+              }
+
+              &:last-child {
+                color: $text;
+              }
+            }
+
+            span {
+              color: lighten($color: green, $amount: 10)
+            }
+          }
+
+          i {
+            color: $default;
+          }
+        }
+      }
+
+      .busca {
+          .title {
+              display: flex;
+              flex-direction: column;
+              div {
+                  &:first-child {
+                      color: $textTitle;
+                      font-weight: bold;
+                      font-size: 1.5rem;
+                      margin-bottom: 15px;
+                  }
+                  &:last-child {
+                      color: $text;
+                      font-size: 1.2rem;
+                  }
+              }
+          }
+          .form {
+              width: 80%;
+              display: inline-flex;
+              .descricao, .input {
+                  display: flex;
+                  flex-direction: column;
+                  flex: 2;
+                  margin-right: 30px;
+                  label {
+                      margin-left: 20px;
+                      margin-bottom: 15px;
+                      color: $text;
+                  }
+                  input {
+                      height: 40px;
+                      border: 1px solid $border;
+                      border-radius: 3px;
+                      padding: 0 20px;
+                  }
+              }
+              .submit {
+                  flex: 1;
+                  display: flex;
+                  align-items: flex-end;
+                  button {
+                    height: 40px;
+                    background-color: $border;
+                    color: $textTitle; 
+                    border: 0;
+                    border-radius: 3px;
+                    flex: 1;
+                  }
+                  button:not(:last-child) {
+                      margin: 0 15px;
+                      margin-left: 0;
+                      background-color: $default;
+                      color: #FFF;
+                      flex: 2;
+
+                  }
+              }
+          }
+      }
     }
   }
 }
