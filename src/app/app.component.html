@@ -24,25 +24,25 @@
           <div>Natureza do requerimento</div>
           <div>Tela de cadastro</div>
         </div>
-        <form class="form">
+
+        <form [formGroup]="form" class="form" (ngSubmit)='addItem(descricao)'>
           <div class="descricao">
-            <label for="descricao">Descrição</label>
-            <input type="text" id="descricao" placeholder="Preencha aqui" ngModel name="descricao" #descricao="ngModel"
-              (change)='log(descricao)'>
+            <label for="descricao">Descrição <span class="error" *ngIf="descricao.touched && descricao.invalid">Campo obrigatório</span></label>
+            <input type="text" id="descricao" placeholder="Preencha aqui" formControlName="descricao" [class]="(descricao.touched && descricao.invalid) ? 'error': ''">
           </div>
           <div class="input">
             <label for="input">Input 2</label>
-            <input type="text" id="input" placeholder="Preencha aqui" ngModel name="input" #input="ngModel"
-              (change)='log(input)'>
+            <input type="text" id="input" placeholder="Preencha aqui" formControlName="input">
           </div>
           <div class="submit">
-            <button>Nova Natureza</button>
-            <button>Limpar</button>
+            <button type='submit'>Nova Natureza</button>
+            <button type="reset" (click)="clearForm()">Limpar</button>
           </div>
         </form>
+        <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
 
-      <div class="table">
+      <div class="table" *ngIf="protocolo.length > 0">
         <table>
           <thead>
             <th>Nomes</th>

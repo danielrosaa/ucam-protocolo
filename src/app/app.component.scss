@@ -311,3 +311,23 @@
     }
   }
 }
+
+span.error {
+    color: salmon !important;
+    font-size: 0.7em;
+    margin-left: 10px;
+}
+input.error {
+    border-color: salmon !important;
+}
+div.error {
+    width: 20%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 0.7em;
+    padding: 10px;
+    background-color: lighten($color: salmon, $amount: 20);
+    color: darken($color: salmon, $amount: 10);
+    border-radius: 10px;
+    text-align: center;
+}
