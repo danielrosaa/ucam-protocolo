@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Protocolo } from './lista/lista.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,13 +41,11 @@ export class AppComponent implements OnInit {
     this.form.reset();
   }
 
-  editItem(index: number, desc: HTMLInputElement, botao: HTMLButtonElement) {
+  editItem(index: number, desc: HTMLInputElement) {
     desc.focus()
     this.editar = true
     this.indexProtocolo = index
     desc.value = this.protocolo[index].nome
-    // this.protocolo[index].nome = this.form.get('descricao').value
-    // this.protocolo.splice(index)
   }
 
   updateProtocolo() {
@@ -65,11 +64,4 @@ export class AppComponent implements OnInit {
   get input() {
     return this.form.get('input')
   }
-}
-
-interface Protocolo {
-  nome: string,
-  subtitulo: string,
-  unidade: number,
-  tipos_natureza: number
 }

@@ -43,7 +43,12 @@
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
 
-      <div class="table" *ngIf="protocolo.length > 0">
+      <app-lista
+        [protocolo]="protocolo"
+        (edit)="editItem($event, desc)"
+        (delete)="deleteProtocolo($event)">
+      </app-lista>
+      <!-- <div class="table" *ngIf="protocolo.length > 0">
         <table>
           <thead>
             <th>Nomes</th>
@@ -65,35 +70,10 @@
                 <button type="button" class="actions" (click)="deleteProtocolo(i)"><i class="material-icons">delete_outline</i> Deletar</button>
               </td>
             </tr>
-            <!-- <tr class="active">
-              <td>
-                <div>Nome do bagulho</div>
-              </td>
-              <td>43</td>
-              <td>234</td>
-              <td>
-                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
-                <button class="actions"><i class="material-icons">edit</i> Editar</button>
-                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div>Nome do bagulho</div>
-              </td>
-              <td>43</td>
-              <td>234</td>
-              <td>
-                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
-                <button class="actions"><i class="material-icons">edit</i> Editar</button>
-                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
-              </td>
-            </tr> -->
 
           </tbody>
         </table>
-      </div>
+      </div> -->
 
     </div>
   </div>
