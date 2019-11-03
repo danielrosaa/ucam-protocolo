@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
+    this.editar = false
   }
 
   editItem(index: number, desc: HTMLInputElement) {

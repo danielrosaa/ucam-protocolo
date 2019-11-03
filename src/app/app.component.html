@@ -27,8 +27,6 @@
 
         <form [formGroup]="form" class="form" (ngSubmit)='addItem(descricao)'>
           <div class="descricao">
-            <!-- <label for="descricao">Descrição <span class="error" *ngIf="descricao.touched && descricao.invalid">Campo obrigatório</span></label>
-            <input type="text" id="descricao" placeholder="Preencha aqui" formControlName="descricao" #desc [class]="(descricao.touched && descricao.invalid) ? 'error': ''"> -->
             <label for="descricao">Descrição</label>
             <input type="text" id="descricao" placeholder="Preencha aqui" formControlName="descricao" #desc>
           </div>
@@ -37,9 +35,15 @@
             <input type="text" id="input" placeholder="Preencha aqui" formControlName="input">
           </div>
           <div class="submit">
-            <button *ngIf="!editar" type='submit'>Nova Natureza</button>
-            <button *ngIf="editar" type='submit' #editar (click)='updateProtocolo()'>Editar</button>
-            <button type="reset" (click)="clearForm()">Limpar</button>
+            <span *ngIf="editar; then edit else notEdit"></span>
+            <ng-template #notEdit>
+              <button type='submit'>Nova Natureza</button>
+              <button type="reset" (click)="clearForm()">Limpar</button>
+            </ng-template>
+            <ng-template #edit>
+              <button type='submit' #editar (click)='updateProtocolo()'>Editar</button>
+              <button type="reset" (click)="clearForm()">Cancelar</button>
+            </ng-template>
           </div>
         </form>
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
@@ -50,32 +54,6 @@
         (edit)="editItem($event, desc)"
         (delete)="deleteProtocolo($event)">
       </app-lista>
-      <!-- <div class="table" *ngIf="protocolo.length > 0">
-        <table>
-          <thead>
-            <th>Nomes</th>
-            <th>Unidades Envolvidas</th>
-            <th>Tipos de Natureza</th>
-            <th></th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of protocolo; index as i">
-              <td>
-                  <div class="nome">{{ item.nome }}</div>
-                  <div class="subtitulo">{{ item.subtitulo }}</div>
-              </td>
-              <td>{{ item.unidade }}</td>
-              <td>{{ item.tipos_natureza}}</td>
-              <td>
-                <button type="button" class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
-                <button type="button" class="actions" (click)="editItem(i, desc, editar)"><i class="material-icons">edit</i> Editar</button>
-                <button type="button" class="actions" (click)="deleteProtocolo(i)"><i class="material-icons">delete_outline</i> Deletar</button>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div> -->
 
     </div>
   </div>
