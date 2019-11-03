@@ -1,35 +1,54 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { ListaComponent } from './lista/lista.component';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
+
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  var component: AppComponent
+  var fixture: ComponentFixture<AppComponent>
+  beforeEach(() => {
+    // component = new AppComponent()
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        ReactiveFormsModule,
+        FormsModule
       ],
       declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+        AppComponent,
+        ListaComponent,
+        SidebarComponent,
+        HeaderComponent
+      ]
+    })
+    fixture = TestBed.createComponent(AppComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  it('teste se existe campo "Descrição"', () => {
+    expect(component.form.contains('descricao')).toBeTruthy()
   });
 
-  it(`should have as title 'lista-protocolos'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('lista-protocolos');
+  it('testa se "Descrição" é obrigatório', () => {
+    let descricao = component.form.controls['descricao']
+
+    descricao.setValue('')
+
+    expect(descricao.valid).toBeFalsy()
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('lista-protocolos app is running!');
+  it('testa se botão "Nova Natureza" adiciona item à lista', () => {
+    let button = fixture.debugElement.query(By.css('button#novaNatureza'))
+    let item = component.form.get('descricao')
+    item.setValue('Daniel')
+    button.triggerEventHandler('click', null)
+    component.addItem(item)
+
+    expect(component.protocolo.length > 0).toBeTruthy()
   });
+
 });

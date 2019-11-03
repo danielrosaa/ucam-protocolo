@@ -37,7 +37,7 @@
           <div class="submit">
             <span *ngIf="editar; then edit else notEdit"></span>
             <ng-template #notEdit>
-              <button type='submit'>Nova Natureza</button>
+              <button type='submit' id="novaNatureza" #novaNatureza>Nova Natureza</button>
               <button type="reset" (click)="clearForm()">Limpar</button>
             </ng-template>
             <ng-template #edit>
