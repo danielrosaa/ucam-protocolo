@@ -28,20 +28,21 @@
         <form [formGroup]="form" class="form" (ngSubmit)='addItem(descricao)'>
           <div class="descricao">
             <label for="descricao">Descrição <span class="error" *ngIf="descricao.touched && descricao.invalid">Campo obrigatório</span></label>
-            <input type="text" id="descricao" placeholder="Preencha aqui" formControlName="descricao" [class]="(descricao.touched && descricao.invalid) ? 'error': ''">
+            <input type="text" id="descricao" placeholder="Preencha aqui" formControlName="descricao" #desc [class]="(descricao.touched && descricao.invalid) ? 'error': ''">
           </div>
           <div class="input">
             <label for="input">Input 2</label>
             <input type="text" id="input" placeholder="Preencha aqui" formControlName="input">
           </div>
           <div class="submit">
-            <button type='submit'>Nova Natureza</button>
+            <button *ngIf="!editar" type='submit'>Nova Natureza</button>
+            <button *ngIf="editar" type='submit' #editar (click)='updateProtocolo()'>Editar</button>
             <button type="reset" (click)="clearForm()">Limpar</button>
           </div>
         </form>
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
-
+      
       <div class="table" *ngIf="protocolo.length > 0">
         <table>
           <thead>
@@ -51,17 +52,17 @@
             <th></th>
           </thead>
           <tbody>
-            <tr *ngFor="let item of protocolo">
+            <tr *ngFor="let item of protocolo; index as i">
               <td>
-                  <div class="nome">{{ item.name }}</div>
+                  <div class="nome">{{ item.nome }}</div>
                   <div class="subtitulo">{{ item.subtitulo }}</div>
               </td>
               <td>{{ item.unidade }}</td>
               <td>{{ item.tipos_natureza}}</td>
               <td>
-                <button class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
-                <button class="actions"><i class="material-icons">edit</i> Editar</button>
-                <button class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
+                <button type="button" class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
+                <button type="button" class="actions" (click)="editItem(i, desc, editar)"><i class="material-icons">edit</i> Editar</button>
+                <button type="button" class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
               </td>
             </tr>
             <!-- <tr class="active">
