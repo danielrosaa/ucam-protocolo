@@ -33,6 +33,14 @@
           //   outline: $border thin solid;
           color: $text;
 
+          &:hover, .active {
+            background-color: $background;
+            color: $default;
+            font-weight: bold;
+            .nome {
+              color: $default !important;
+            }
+          }
           .border {
             width: 100%;
             height: 1px;

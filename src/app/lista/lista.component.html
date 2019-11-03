@@ -8,7 +8,7 @@
         <th></th>
       </thead>
       <tbody>
-        <tr *ngFor="let item of protocolo; index as i">
+        <tr *ngFor="let item of protocolo; index as i" [ngClass]="(item.isActive && (oldIndex === i)) ? 'active' : ''">
           <td>
               <div class="nome">{{ item.nome }}</div>
               <div class="subtitulo">{{ item.subtitulo }}</div>

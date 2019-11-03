@@ -52,7 +52,8 @@
       <app-lista
         [protocolo]="protocolo"
         (edit)="editItem($event, desc)"
-        (delete)="deleteProtocolo($event)">
+        (delete)="deleteProtocolo($event)"
+        [isActive]='editar'>
       </app-lista>
 
     </div>
