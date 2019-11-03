@@ -1,4 +1,9 @@
 @import './../../assets/styles/variables';
+@media screen and (max-width: 1440px) {
+    .sidebar {
+        font-size: 0.8em !important;
+    }
+}
 .sidebar {
     background-color: $sidebar;
     height: 100%;

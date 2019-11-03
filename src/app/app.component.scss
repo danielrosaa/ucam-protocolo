@@ -36,10 +36,85 @@
       }
     }
 
-    @media screen and (max-width: 1441px) {
+    @media screen and (max-width: 1440px) {
       .content {
         padding: 2em 4em !important;
+        font-size: 0.8em;
+        
+        .title {
+          display: flex;
+          height: 5em;
+          margin-bottom: 1em;
 
+          .left {
+            display: flex;
+            align-items: center;
+            flex: 2 !important;
+
+            img {
+              // flex: 1;
+              width: 150px;
+              height: auto;
+            }
+
+            span {
+              color: $text;
+              margin-left: 15px;
+              // flex: 10;
+            }
+          }
+
+          .right {
+            flex: 1 !important;
+            display: flex;
+            align-items: center;
+            background-color: #FFF;
+            border-radius: 5px;
+            padding-right: 10px;
+            
+
+            .left {
+              justify-content: center;
+              margin-right: 5px;
+              flex: 2;
+              color: $textTitle;
+              font-weight: bold;
+              font-size: 0.9em;
+
+              i {
+                color: $iconDisabled;
+                margin-right: 10px;
+              }
+            }
+
+            .right {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 5px;
+              font-size: 0.8em;
+              flex: 1;
+
+              div {
+                &:first-child {
+                  color: $textTitle;
+                }
+
+                &:last-child {
+                  color: $text;
+                }
+              }
+
+              span {
+                color: lighten($color: green, $amount: 10)
+              }
+            }
+
+            i {
+              color: $default;
+            }
+          }
+        }
 
         .busca .form {
           width: 90% !important;
@@ -313,21 +388,23 @@
 }
 
 span.error {
-    color: salmon !important;
-    font-size: 0.7em;
-    margin-left: 10px;
+  color: salmon !important;
+  font-size: 0.7em;
+  margin-left: 10px;
 }
+
 input.error {
-    border-color: salmon !important;
+  border-color: salmon !important;
 }
+
 div.error {
-    width: 20%;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-size: 0.7em;
-    padding: 10px;
-    background-color: lighten($color: salmon, $amount: 20);
-    color: darken($color: salmon, $amount: 10);
-    border-radius: 10px;
-    text-align: center;
+  width: 20%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 0.7em;
+  padding: 10px;
+  background-color: lighten($color: salmon, $amount: 20);
+  color: darken($color: salmon, $amount: 10);
+  border-radius: 10px;
+  text-align: center;
 }
