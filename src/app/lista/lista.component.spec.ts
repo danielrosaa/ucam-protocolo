@@ -1,25 +1,35 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ListaComponent } from "./lista.component"
 
-import { ListaComponent } from './lista.component';
-
-describe('ListaComponent', () => {
-  let component: ListaComponent;
-  let fixture: ComponentFixture<ListaComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ListaComponent ]
-    })
-    .compileComponents();
-  }));
-
+describe('ListComponent', () => {
+  let component: ListaComponent
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    component = new ListaComponent()
+  })
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  it('testa se evento para editar é chamado a partir do componente', () => {
+    let index = null
+    component.edit.subscribe(value => index = value)
+
+    component.eventEdit(1)
+
+    expect(index).toBe(1)
+  })
+
+  it('testa se evento para deletar é chamado a partir do componente', () => {
+    let index = null
+    component.delete.subscribe(value => index = value)
+
+    component.eventDelete(1)
+
+    expect(index).toBe(1)
+  })
+
+  it('testa se botão "Deletar" exclui item da lista', () => {
+    let index = null
+    component.delete.subscribe(value => index = value)
+
+    component.eventDelete(1)
+
+    expect(index).toBe(1)
+  })
+})

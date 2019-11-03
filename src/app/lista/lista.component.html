@@ -1,1 +1,27 @@
-<p>lista works!</p>
+<div class="table" *ngIf="protocolo.length > 0">
+    <!-- {{protocolo[0].nome}} -->
+    <table>
+      <thead>
+        <th>Nomes</th>
+        <th>Unidades Envolvidas</th>
+        <th>Tipos de Natureza</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of protocolo; index as i" [ngClass]="(item.isActive && (oldIndex === i)) ? 'active' : ''">
+          <td>
+              <div class="nome">{{ item.nome }}</div>
+              <div class="subtitulo">{{ item.subtitulo }}</div>
+          </td>
+          <td>{{ item.unidade }}</td>
+          <td>{{ item.tipos_natureza}}</td>
+          <td>
+            <button type="button" class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
+            <button type="button" class="actions" (click)="eventEdit(i)"><i class="material-icons">edit</i> Editar</button>
+            <button id="deletar" type="button" class="actions" (click)="eventDelete(i)"><i class="material-icons">delete_outline</i> Deletar</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>

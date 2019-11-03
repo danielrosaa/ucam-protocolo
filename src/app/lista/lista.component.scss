@@ -1,0 +1,114 @@
+@import './../../assets/styles/variables';
+.table {
+    width: 100%;
+
+    table {
+      border-spacing: 0;
+      width: 100%;
+      background-color: #FFF;
+      font-size: 0.75em;
+      outline: $border thin solid;
+
+      thead {
+        text-transform: uppercase;
+        color: $text;
+        font-size: 0.8em;
+        border: 1px solid $border !important;
+
+        th {
+          height: 50px;
+
+          &:first-child {
+            text-align: left;
+            padding-left: 20px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          height: 50px;
+          text-align: center;
+          padding: 5px 0;
+          //   outline: $border thin solid;
+          color: $text;
+
+          &:hover, .active {
+            background-color: $background;
+            color: $default;
+            font-weight: bold;
+            .nome {
+              color: $default !important;
+            }
+          }
+          .border {
+            width: 100%;
+            height: 1px;
+            background-color: $border;
+          }
+
+          &.active {
+            td {
+              color: $default;
+              font-weight: bold;
+              background-color: $background;
+              border-top: 1px solid $border;
+            }
+          }
+
+          td {
+            border-top: 1px solid $border;
+
+            &:first-child {
+              text-align: left;
+
+              div {
+                padding: 0 20px;
+                border-left: 5px solid $default;
+
+                &.nome {
+                  color: $textTitle;
+                  font-weight: bold;
+                }
+
+                &.subtitulo {
+                  padding-top: 5px;
+                  font-size: 0.8em;
+                }
+              }
+            }
+
+            button {
+              margin: 10px;
+              border: 1px solid $border;
+              border-radius: 15px;
+              padding: 5px 10px;
+              cursor: pointer;
+              outline: 0;
+
+              &.actions {
+                color: $text;
+                font-size: 0.8em;
+                background-color: #FFF;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 20%;
+
+                i {
+                  font-size: 1.2em;
+                  margin-right: 5px;
+                }
+
+                &.visualizar {
+                  background-color: $default;
+                  color: #FFF;
+                  width: auto !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

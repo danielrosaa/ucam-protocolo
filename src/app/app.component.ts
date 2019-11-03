@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Protocolo } from './lista/lista.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,10 +20,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.protocolo = []
     this.editar = false
-  }
-
-  clearForm() {
-    this.form.reset();
+    this.indexProtocolo = 0
   }
 
   addItem(item) {
@@ -31,9 +29,11 @@ export class AppComponent implements OnInit {
         "nome": item.value,
         "subtitulo": "12 tipos de natureza",
         "unidade": 12,
-        "tipos_natureza": 234
+        "tipos_natureza": 234,
+        "isActive": false
       })
-      this.clearForm()
+      this.form.reset();
+      this.editar = false
     } else {
       this.form.setErrors({
         fieldsEmpty: true
@@ -41,14 +41,18 @@ export class AppComponent implements OnInit {
     }
   }
 
+  clearForm() {
+    this.form.reset();
+    this.editar = false
+    this.protocolo[this.indexProtocolo].isActive = false
+  }
 
-  editItem(index: number, desc: HTMLInputElement, botao: HTMLButtonElement) {
+  editItem(index: number, desc: HTMLInputElement) {
     desc.focus()
     this.editar = true
     this.indexProtocolo = index
     desc.value = this.protocolo[index].nome
-    // this.protocolo[index].nome = this.form.get('descricao').value
-    // this.protocolo.splice(index)
+    this.protocolo[index].isActive = true
   }
 
   updateProtocolo() {
@@ -59,6 +63,7 @@ export class AppComponent implements OnInit {
 
   deleteProtocolo(index: number) {
     this.protocolo.splice(index, 1)
+    this.clearForm()
   }
 
   get descricao() {
@@ -67,11 +72,4 @@ export class AppComponent implements OnInit {
   get input() {
     return this.form.get('input')
   }
-}
-
-interface Protocolo {
-  nome: string,
-  subtitulo: string,
-  unidade: number,
-  tipos_natureza: number
 }
