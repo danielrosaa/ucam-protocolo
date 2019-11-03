@@ -20,14 +20,19 @@ export class AppComponent implements OnInit {
     this.protocolo = []
     this.editar = false
   }
+
+  clearForm() {
+    this.form.reset();
+  }
+
   addItem(item) {
     if (!this.form.get('descricao').invalid) {
       this.protocolo.push({
-          "nome": item.value,
-          "subtitulo": "12 tipos de natureza",
-          "unidade": 12,
-          "tipos_natureza": 234
-        })
+        "nome": item.value,
+        "subtitulo": "12 tipos de natureza",
+        "unidade": 12,
+        "tipos_natureza": 234
+      })
       this.clearForm()
     } else {
       this.form.setErrors({
@@ -36,9 +41,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  clearForm() {
-    this.form.reset();
-  }
 
   editItem(index: number, desc: HTMLInputElement, botao: HTMLButtonElement) {
     desc.focus()
