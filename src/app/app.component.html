@@ -42,7 +42,7 @@
         </form>
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
-      
+
       <div class="table" *ngIf="protocolo.length > 0">
         <table>
           <thead>
@@ -62,7 +62,7 @@
               <td>
                 <button type="button" class="actions visualizar"><i class="material-icons">visibility</i> Visualizar</button>
                 <button type="button" class="actions" (click)="editItem(i, desc, editar)"><i class="material-icons">edit</i> Editar</button>
-                <button type="button" class="actions"><i class="material-icons">delete_outline</i> Deletar</button>
+                <button type="button" class="actions" (click)="deleteProtocolo(i)"><i class="material-icons">delete_outline</i> Deletar</button>
               </td>
             </tr>
             <!-- <tr class="active">

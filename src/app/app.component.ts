@@ -55,6 +55,10 @@ export class AppComponent implements OnInit {
     this.clearForm()
   }
 
+  deleteProtocolo(index: number) {
+    this.protocolo.splice(index, 1)
+  }
+
   get descricao() {
     return this.form.get('descricao')
   }
