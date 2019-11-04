@@ -59,8 +59,8 @@ export class AppComponent implements OnInit {
     this.protocolo[index].isActive = true
   }
 
-  updateProtocolo() {
-    this.protocolo[this.indexProtocolo].nome = this.form.get('descricao').value
+  updateProtocolo(desc: string) {
+    this.protocolo[this.indexProtocolo].nome = desc
     this.editar = false
     this.clearForm()
   }

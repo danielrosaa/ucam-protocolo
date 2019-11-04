@@ -41,14 +41,14 @@
               <button type="reset" (click)="clearForm()">Limpar</button>
             </ng-template>
             <ng-template #edit>
-              <button type='submit' #editar (click)='updateProtocolo()'>Editar</button>
+              <button type='submit' #editar (click)='updateProtocolo(desc.value)'>Editar</button>
               <button type="reset" (click)="clearForm()">Cancelar</button>
             </ng-template>
           </div>
         </form>
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
-
+      {{desc.value}}
       <app-lista
         [protocolo]="protocolo"
         (edit)="editItem($event, desc)"
