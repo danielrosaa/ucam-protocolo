@@ -30,13 +30,12 @@
           height: 50px;
           text-align: center;
           padding: 5px 0;
-          //   outline: $border thin solid;
           color: $text;
-
           &:hover, .active {
             background-color: $background;
             color: $default;
             font-weight: bold;
+            text-shadow: 0;
             .nome {
               color: $default !important;
             }
@@ -58,14 +57,14 @@
 
           td {
             border-top: 1px solid $border;
-
+            cursor: context-menu;
             &:first-child {
               text-align: left;
-
+              width: 25%;
               div {
                 padding: 0 20px;
                 border-left: 5px solid $default;
-
+                
                 &.nome {
                   color: $textTitle;
                   font-weight: bold;
@@ -77,6 +76,12 @@
                 }
               }
             }
+            &:nth-child(2), &:nth-child(3) {
+              width: 15%;
+            }
+            &:last-child {
+              width: 45%;
+            }
 
             button {
               margin: 10px;
@@ -85,7 +90,7 @@
               padding: 5px 10px;
               cursor: pointer;
               outline: 0;
-
+              
               &.actions {
                 color: $text;
                 font-size: 0.8em;

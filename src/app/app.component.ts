@@ -18,7 +18,13 @@ export class AppComponent implements OnInit {
   })
 
   ngOnInit() {
-    this.protocolo = []
+    this.protocolo = [{
+      "nome": 'Daniel Rosa',
+      "subtitulo": "12 tipos de natureza",
+      "unidade": 12,
+      "tipos_natureza": 234,
+      "isActive": false
+    }]
     this.editar = false
     this.indexProtocolo = 0
   }
@@ -31,8 +37,7 @@ export class AppComponent implements OnInit {
         "tipos_natureza": 234,
         "isActive": false
       })
-      this.form.reset();
-      this.editar = false
+      this.clearForm()
     } else {
       this.form.setErrors({
         fieldsEmpty: true
@@ -43,7 +48,7 @@ export class AppComponent implements OnInit {
   clearForm() {
     this.form.reset();
     this.editar = false
-    this.protocolo[this.indexProtocolo].isActive = false
+    if (this.protocolo.length > 0) this.protocolo[this.indexProtocolo].isActive = false
   }
 
   editItem(index: number, desc: HTMLInputElement) {
