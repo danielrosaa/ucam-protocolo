@@ -1,1 +1,1 @@
- ng build --prod --output-path docs --base-href "ucam-protocolo"
+ ng build --prod --output-path docs --base-href "/ucam-protocolo"
