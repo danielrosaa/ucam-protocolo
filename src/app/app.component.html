@@ -48,7 +48,6 @@
         </form>
         <div *ngIf="form.errors" class="error">O campo "descrição" é obrigatório</div>
       </div>
-      {{desc.value}}
       <app-lista
         [protocolo]="protocolo"
         (edit)="editItem($event, desc)"
